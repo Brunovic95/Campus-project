@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Found Items</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#f3f4f6;
+    color:#1f2937;
+}
+
+nav{
+    background:#2563eb;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+nav h2{
+    font-size:22px;
+}
+
+nav .links{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+#logout-btn{
+    background:#ef4444;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+#welcome-user{
+    font-weight:bold;
+}
+
+#admin-link{
+    display:none;
+}
+
+.container{
+    max-width:1100px;
+    margin:30px auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    margin-bottom:25px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.card h2,
+.card h3{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:1px solid #d1d5db;
+    border-radius:5px;
+    font-size:15px;
+}
+
+textarea{
+    resize:vertical;
+    min-height:100px;
+}
+
+button[type="submit"]{
+    margin-top:15px;
+    width:100%;
+    padding:12px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:bold;
+}
+
+button[type="submit"]:hover{
+    background:#1d4ed8;
+}
+
+.item-card{
+    border:1px solid #e5e7eb;
+    border-radius:8px;
+    padding:15px;
+    margin-bottom:15px;
+    background:#fafafa;
+}
+
+.item-card h4{
+    color:#111827;
+    margin-bottom:8px;
+}
+
+.status-open{
+    color:#16a34a;
+    font-weight:bold;
+}
+
+.status-claimed{
+    color:#d97706;
+    font-weight:bold;
+}
+
+.status-resolved{
+    color:#dc2626;
+    font-weight:bold;
+}
+
+@media(max-width:700px){
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+nav .links{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.container{
+    padding:15px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<h2>Campus Lost & Found</h2>
+
+<div class="links">
+
+<a href="lost.html">My Lost Items</a>
+
+<a href="found.html">Found Items</a>
+
+<a href="admin.html" id="admin-link">Admin</a>
+
+<span id="welcome-user"></span>
+
+<button id="logout-btn">Logout</button>
+
+</div>
+
+</nav>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Found Items Board</h2>
+
+<p>
+Found an item on campus? Submit it below so the rightful owner can locate it.
+</p>
+<form id="found-form">
+
+    <input
+        id="title"
+        type="text"
+        placeholder="Item Name"
+        required>
+
+    <input
+        id="category"
+        type="text"
+        placeholder="Category (Phone, Keys, Wallet...)"
+        required>
+
+    <input
+        id="location_found"
+        type="text"
+        placeholder="Location Found"
+        required>
+
+    <textarea
+        id="description"
+        placeholder="Description (Colour, Brand, Identifying Features)"></textarea>
+
+    <button type="submit">
+        Report Found Item
+    </button>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<h3>Browse Found Items</h3>
+
+<p style="margin-bottom:15px;color:#6b7280;">
+Search or filter available found items.
+</p>
+
+<div style="display:flex;gap:15px;flex-wrap:wrap;margin-bottom:20px;">
+
+<input
+    id="search"
+    type="text"
+    placeholder="Search by title, category or location..."
+    style="flex:2;min-width:250px;">
+
+<select
+    id="status-filter"
+    style="flex:1;min-width:180px;">
+
+    <option value="open">Open Items</option>
+
+    <option value="claimed">Claimed Items</option>
+
+    <option value="resolved">Resolved Items</option>
+
+    <option value="all">All Items</option>
+
+</select>
+
+</div>
+
+<div id="loading-message">
+
+    <p>Loading found items...</p>
+
+</div>
+
+<div
+    id="found-list"
+    style="display:none;">
+
+</div>
+
+<div
+    id="empty-message"
+    style="display:none;text-align:center;padding:30px;color:#6b7280;">
+
+    No found items available.
+
+</div>
+</div>
+
+<footer style="
+    text-align:center;
+    padding:20px;
+    color:#6b7280;
+    font-size:14px;
+    margin-top:30px;
+">
+    Campus Lost &amp; Found System &copy; 2026
+</footer>
+
+<script type="module" src="found.js"></script>
+
+</body>
+</html>

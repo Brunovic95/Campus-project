@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Lost & Found</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#f3f4f6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.card{
+    width:100%;
+    max-width:420px;
+    background:#fff;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+h1{
+    text-align:center;
+    color:#2563eb;
+    margin-bottom:5px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+.tabs{
+    display:flex;
+    border-bottom:1px solid #ddd;
+    margin-bottom:20px;
+}
+
+.tab{
+    flex:1;
+    text-align:center;
+    padding:12px;
+    cursor:pointer;
+    font-weight:bold;
+    color:#666;
+}
+
+.tab.active{
+    color:#2563eb;
+    border-bottom:3px solid #2563eb;
+}
+
+.hidden{
+    display:none;
+}
+
+label{
+    display:block;
+    margin-top:12px;
+    margin-bottom:5px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:11px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#2563eb;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:18px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.forgot-link{
+    display:block;
+    text-align:right;
+    margin-top:10px;
+    color:#2563eb;
+    cursor:pointer;
+    font-size:14px;
+}
+
+#message{
+    display:none;
+    margin-top:18px;
+    padding:12px;
+    border-radius:5px;
+    font-size:14px;
+}
+
+.success{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.error{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.footer{
+    text-align:center;
+    margin-top:25px;
+    color:#888;
+    font-size:13px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h1>Campus Lost & Found</h1>
+
+<p class="subtitle">
+Report lost items, browse found items and recover your belongings.
+</p>
+
+<div class="tabs">
+
+<div id="tab-login" class="tab active">
+Login
+</div>
+
+<div id="tab-signup" class="tab">
+Sign Up
+</div>
+
+</div>
+
+<!-- LOGIN -->
+
+<form id="login-form">
+
+<label>Email</label>
+<input
+id="login_email"
+type="email"
+required
+autocomplete="username">
+
+<label>Password</label>
+<input
+id="login_password"
+type="password"
+required
+autocomplete="current-password">
+
+<span id="forgot-btn" class="forgot-link">
+Forgot Password?
+</span>
+
+<button type="submit">
+Login
+</button>
+
+</form>
+
+<!-- SIGNUP -->
+
+<form id="signup-form" class="hidden">
+
+<label>Full Name</label>
+<input
+id="full_name"
+type="text"
+required>
+
+<label>Email</label>
+<input
+id="email"
+type="email"
+required>
+
+<label>Password</label>
+<input
+id="password"
+type="password"
+required>
+
+<button type="submit">
+Create Account
+</button>
+
+</form>
+
+<!-- FORGOT PASSWORD -->
+
+<form id="forgot-form" class="hidden">
+
+<p style="margin-bottom:15px;font-size:14px;color:#666;">
+Enter your email address to receive a password reset link.
+</p>
+
+<label>Email</label>
+
+<input
+id="forgot_email"
+type="email"
+required>
+
+<button type="submit">
+Send Reset Link
+</button>
+
+<span
+id="back-to-login"
+class="forgot-link"
+style="text-align:center;margin-top:20px;">
+Back to Login
+</span>
+
+</form>
+
+<div id="message"></div>
+
+<div class="footer">
+
+Campus Lost & Found System<br>
+
+Version 1.0
+
+</div>
+
+</div>
+
+<script type="module" src="auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+# Campus Lost & Found System
+
+A clean, responsive web application designed for educational campuses to log, track, manage, and resolve lost and found items. The system features modular vanilla JavaScript architecture on the frontend, using **Supabase** as a Backend-as-a-Service (BaaS) for secure user authentication, database operations, and user role separation.
+
+---
+
+## 🚀 Features
+
+*   **Secure Authentication**: User registration, login handling, and active session enforcement.
+*   **Role-Based Access Control (RBAC)**: Custom role checking ensuring only accounts verified as `admin` can access administrative routing.
+*   **Dynamic Admin Dashboard**: Real-time analytical tracking metrics showing total users, active lost listings, and active found listings.
+*   **Live Multi-Query Filters**: Dynamic table interface supporting direct search terms across item titles, categories, or drop points alongside status state filters.
+*   **Full CRUD Suite**: Complete admin panel tool allowing records creation, item deletions, inventory tracking updates, and account creation controls.
+*   **XSS & Injection Protection**: Secure DOM data-binding utilities preventing script injection exploits from arbitrary user inputs.
+
+---
+
+## 📂 File Architecture
+
+```text
+├── index.html           # Landing page / Login and Sign Up portal gateway
+├── auth.js              # Business logic for authentication processes
+├── lost.html            # Public workspace interface to register lost item requests
+├── lost.js              # Business logic for processing missing items reports
+├── found.html           # Public workspace interface listing recovered items
+├── found.js             # Business logic for processing recovered items reports
+├── admin.html           # Restricted administrative control dashboard interface
+├── admin.js             # State controller handling CRUD, metric calculations, and user creation
+├── supabaseClient.js    # Global configuration instance initialization for Supabase
+├── logout.js            # Shared session clearance utility script
+└── style.css            # Unified application visual design template stylesheet
